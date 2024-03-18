@@ -5,6 +5,7 @@ import { ASSETS_API } from 'src/config-global';
 import {
   _id,
   _ages,
+  _tipo,
   _roles,
   _prices,
   _emails,
@@ -44,6 +45,7 @@ export const _mock = {
   productName: (index) => _productNames[index],
   sentence: (index) => _sentences[index],
   description: (index) => _descriptions[index],
+  tipo: (index) => _tipo[index],
   // Contact
   email: (index) => _emails[index],
   phoneNumber: (index) => _phoneNumbers[index],

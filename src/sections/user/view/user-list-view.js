@@ -47,13 +47,13 @@ import UserTableFiltersResult from '../user-table-filters-result';
 
 // ----------------------------------------------------------------------
 
-const STATUS_OPTIONS = [{ value: 'all', label: 'All' }, ...USER_STATUS_OPTIONS];
+const STATUS_OPTIONS = [{ value: 'Todos', label: 'Todos' }, ...USER_STATUS_OPTIONS];
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name' },
-  { id: 'phoneNumber', label: 'Phone Number', width: 180 },
-  { id: 'company', label: 'Company', width: 220 },
-  { id: 'role', label: 'Role', width: 180 },
+  { id: 'name', label: 'Nome' },
+  { id: 'ocupation', label: 'Cargo', width: 180 },
+  { id: 'contract', label: 'Contrato', width: 220 },
+  { id: 'contact', label: 'Teletone', width: 180 },
   { id: 'status', label: 'Status', width: 100 },
   { id: '', width: 88 },
 ];
@@ -117,7 +117,7 @@ export default function UserListView() {
     (id) => {
       const deleteRow = tableData.filter((row) => row.id !== id);
 
-      enqueueSnackbar('Delete success!');
+      enqueueSnackbar('Deletado com sucesso!');
 
       setTableData(deleteRow);
 
@@ -129,7 +129,7 @@ export default function UserListView() {
   const handleDeleteRows = useCallback(() => {
     const deleteRows = tableData.filter((row) => !table.selected.includes(row.id));
 
-    enqueueSnackbar('Delete success!');
+    enqueueSnackbar('Deletado com sucesso!');
 
     setTableData(deleteRows);
 
@@ -157,11 +157,11 @@ export default function UserListView() {
     <>
       <Container maxWidth={settings.themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="List"
+          heading="Ver Todos os Colaboradores"
           links={[
-            { name: 'Dashboard', href: paths.dashboard.root },
-            { name: 'User', href: paths.dashboard.user.root },
-            { name: 'List' },
+            { name: 'Home', href: paths.dashboard.root },
+            { name: 'Colaboradores', href: paths.dashboard.user.root },
+            { name: 'Ver Todos' },
           ]}
           action={
             <Button
@@ -170,7 +170,7 @@ export default function UserListView() {
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
-              New User
+              Novo Colaborador
             </Button>
           }
           sx={{
@@ -196,12 +196,13 @@ export default function UserListView() {
                 icon={
                   <Label
                     variant={
-                      ((tab.value === 'all' || tab.value === filters.status) && 'filled') || 'soft'
+                      ((tab.value === 'Todos' || tab.value === filters.status) && 'filled') ||
+                      'soft'
                     }
                     color={
-                      (tab.value === 'active' && 'success') ||
-                      (tab.value === 'pending' && 'warning') ||
-                      (tab.value === 'banned' && 'error') ||
+                      (tab.value === 'Ativo' && 'success') ||
+                      (tab.value === 'Em Contratação' && 'warning') ||
+                      (tab.value === 'Desligado' && 'error') ||
                       'default'
                     }
                   >
@@ -317,7 +318,8 @@ export default function UserListView() {
         title="Delete"
         content={
           <>
-            Are you sure want to delete <strong> {table.selected.length} </strong> items?
+            Você tem certeza que dejea deletar este registro?{' '}
+            <strong> {table.selected.length} </strong> items?
           </>
         }
         action={

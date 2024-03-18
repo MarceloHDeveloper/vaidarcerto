@@ -178,7 +178,9 @@ export const _prices = [
   83.74, 97.14, 68.71, 85.21, 52.17, 25.18, 43.84, 60.98, 98.42, 53.37, 72.75, 56.61, 64.55, 77.32,
   60.62, 79.81, 93.68, 47.44, 76.24, 92.87, 72.91, 20.54, 94.25, 37.51,
 ];
-
+export const _tipo = [
+  "Coleta", "Multitarefas", "Coleta",  "Coleta", "Multitarefas", "Coleta",  "Coleta", "Multitarefas", "Coleta",  "Coleta", "Multitarefas", "Coleta"
+];
 export const _ratings = [
   4.2, 3.7, 4.5, 3.5, 0.5, 3.0, 2.5, 2.8, 4.9, 3.6, 2.5, 1.7, 3.9, 2.8, 4.1, 4.5, 2.2, 3.2, 0.6,
   1.3, 3.8, 3.8, 3.8, 2.0,

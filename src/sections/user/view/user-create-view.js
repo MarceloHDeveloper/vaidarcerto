@@ -17,17 +17,17 @@ export default function UserCreateView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
-        heading="Create a new user"
+        heading="Cadastrar Colaborador"
         links={[
           {
-            name: 'Dashboard',
+            name: 'Relatório ',
             href: paths.dashboard.root,
           },
           {
-            name: 'User',
+            name: 'Colaboradores',
             href: paths.dashboard.user.root,
           },
-          { name: 'New user' },
+          { name: 'Novo Colaborador' },
         ]}
         sx={{
           mb: { xs: 3, md: 5 },

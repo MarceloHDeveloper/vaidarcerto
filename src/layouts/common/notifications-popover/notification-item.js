@@ -92,10 +92,13 @@ export default function NotificationItem({ notification }) {
   const friendAction = (
     <Stack spacing={1} direction="row" sx={{ mt: 1.5 }}>
       <Button size="small" variant="contained">
-        Accept
+        Avaliar
       </Button>
       <Button size="small" variant="outlined">
-        Decline
+        Aceitar
+      </Button>
+      <Button size="small" variant="outlined">
+        Rejeitar
       </Button>
     </Stack>
   );
@@ -195,7 +198,7 @@ export default function NotificationItem({ notification }) {
         Pay
       </Button>
       <Button size="small" variant="outlined">
-        Decline
+      hi
       </Button>
     </Stack>
   );
@@ -216,6 +219,7 @@ export default function NotificationItem({ notification }) {
       <Stack sx={{ flexGrow: 1 }}>
         {renderText}
         {notification.type === 'friend' && friendAction}
+
         {notification.type === 'project' && projectAction}
         {notification.type === 'file' && fileAction}
         {notification.type === 'tags' && tagsAction}

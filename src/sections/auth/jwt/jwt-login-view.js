@@ -41,8 +41,10 @@ export default function JwtLoginView() {
   const password = useBoolean();
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-    password: Yup.string().required('Password is required'),
+    email: Yup.string()
+      .required('O email é  obrigatório')
+      .email('Você deve informar um endereço válido de email'),
+    password: Yup.string().required('A senha é obrigatória.'),
   });
 
   const defaultValues = {
@@ -74,14 +76,15 @@ export default function JwtLoginView() {
   });
 
   const renderHead = (
-    <Stack spacing={2} sx={{ mb: 5 }}>
-      <Typography variant="h4">Sign in to Minimal</Typography>
+    <Stack spacing={2} sx={{ mb: 2 }}>
+      <Typography variant="h4">Bem Vindo!</Typography>
+      <Typography variant="h6">Informe seu login e senha para entrar.</Typography>
 
       <Stack direction="row" spacing={0.5}>
-        <Typography variant="body2">New user?</Typography>
+        <Typography variant="body2">Não esta cadastrado?</Typography>
 
         <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
-          Create an account
+          Solicite o Cadastro.
         </Link>
       </Stack>
     </Stack>
@@ -107,7 +110,7 @@ export default function JwtLoginView() {
       />
 
       <Link variant="body2" color="inherit" underline="always" sx={{ alignSelf: 'flex-end' }}>
-        Forgot password?
+        Esqueceu a senha ?
       </Link>
 
       <LoadingButton
@@ -118,7 +121,7 @@ export default function JwtLoginView() {
         variant="contained"
         loading={isSubmitting}
       >
-        Login
+        Entrar
       </LoadingButton>
     </Stack>
   );

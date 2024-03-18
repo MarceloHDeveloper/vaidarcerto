@@ -47,14 +47,14 @@ export const _appAuthors = [...Array(3)].map((_, index) => ({
 }));
 
 export const _appInvoices = [...Array(5)].map((_, index) => {
-  const category = ['Android', 'Mac', 'Windows', 'Android', 'Mac'][index];
+  const category = ['Matipó ', 'Lajinha', 'Congonhas', 'Rio claro', 'Frutal'][index];
 
-  const status = ['paid', 'out of date', 'progress', 'paid', 'paid'][index];
+  const status = ['Assinado', 'Cancelado', 'Assinado', 'Em aberto', 'Assinado'][index];
 
   return {
     id: _mock.id(index),
-    invoiceNumber: `INV-199${index}`,
-    price: _mock.number.price(index),
+    invoiceNumber: `CT00450${index}`,
+    price: _mock.tipo(index),
     category,
     status,
   };

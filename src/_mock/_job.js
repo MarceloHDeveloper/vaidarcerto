@@ -10,23 +10,12 @@ export const JOB_DETAILS_TABS = [
 ];
 
 export const JOB_SKILL_OPTIONS = [
-  'UI',
-  'UX',
-  'Html',
-  'JavaScript',
-  'TypeScript',
-  'Communication',
-  'Problem Solving',
-  'Leadership',
-  'Time Management',
-  'Adaptability',
-  'Collaboration',
-  'Creativity',
-  'Critical Thinking',
-  'Technical Skills',
-  'Customer Service',
-  'Project Management',
-  'Problem Diagnosis',
+  'Auxiliar de Escritório',
+  'Coletor',
+  'Gari',
+  'Motorista',
+  'Fiscal',
+  'Diretor',
 ];
 
 export const JOB_WORKING_SCHEDULE_OPTIONS = [

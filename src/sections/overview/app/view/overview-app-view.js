@@ -1,28 +1,19 @@
 'use client';
 
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 
-import { SeoIllustration } from 'src/assets/illustrations';
-import { _appAuthors, _appRelated, _appFeatured, _appInvoices, _appInstalled } from 'src/_mock';
+import { _appInvoices } from 'src/_mock';
 
 import { useSettingsContext } from 'src/components/settings';
 
-import AppWidget from '../app-widget';
-import AppWelcome from '../app-welcome';
-import AppFeatured from '../app-featured';
 import AppNewInvoice from '../app-new-invoice';
-import AppTopAuthors from '../app-top-authors';
-import AppTopRelated from '../app-top-related';
 import AppAreaInstalled from '../app-area-installed';
 import AppWidgetSummary from '../app-widget-summary';
 import AppCurrentDownload from '../app-current-download';
-import AppTopInstalledCountries from '../app-top-installed-countries';
 
 // ----------------------------------------------------------------------
 
@@ -36,39 +27,22 @@ export default function OverviewAppView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'xl'}>
       <Grid container spacing={3}>
-        <Grid xs={12} md={8}>
-          <AppWelcome
-            title={`Welcome back 👋 \n ${user?.displayName}`}
-            description="If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything."
-            img={<SeoIllustration />}
-            action={
-              <Button variant="contained" color="primary">
-                Go Now
-              </Button>
-            }
-          />
-        </Grid>
-
-        <Grid xs={12} md={4}>
-          <AppFeatured list={_appFeatured} />
-        </Grid>
-
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total Active Users"
+            title="Horas Compensadas"
             percent={2.6}
-            total={18765}
+            total={284}
             chart={{
-              series: [5, 18, 12, 51, 68, 11, 39, 37, 27, 20],
+              series: [30, 47, 78, 121, 168],
             }}
           />
         </Grid>
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total Installed"
+            title="Total de Contratações"
             percent={0.2}
-            total={4876}
+            total={486}
             chart={{
               colors: [theme.palette.info.light, theme.palette.info.main],
               series: [20, 41, 63, 33, 28, 35, 50, 46, 11, 26],
@@ -78,25 +52,25 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total Downloads"
-            percent={-0.1}
-            total={678}
+            title="Solicitação de EPIs"
+            percent={-0.5}
+            total={793}
             chart={{
               colors: [theme.palette.warning.light, theme.palette.warning.main],
-              series: [8, 9, 31, 8, 16, 37, 8, 33, 46, 31],
+              series: [80, 90, 310, 80, 160, 370, 840, 330, 460, 943],
             }}
           />
         </Grid>
 
         <Grid xs={12} md={6} lg={4}>
           <AppCurrentDownload
-            title="Current Download"
+            title="Demanda de Pessoal"
             chart={{
               series: [
-                { label: 'Mac', value: 12244 },
-                { label: 'Window', value: 53345 },
-                { label: 'iOS', value: 44313 },
-                { label: 'Android', value: 78343 },
+                { label: 'Matipó', value: 140 },
+                { label: 'Frutal', value: 345 },
+                { label: 'Carangola', value: 113 },
+                { label: 'Lajinha', value: 543 },
               ],
             }}
           />
@@ -104,47 +78,47 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={8}>
           <AppAreaInstalled
-            title="Area Installed"
-            subheader="(+43%) than last year"
+            title="Horas Extras VS Horas Negativas"
+            subheader="(+43%) Maior que no último ano"
             chart={{
               categories: [
                 'Jan',
-                'Feb',
+                'Fev',
                 'Mar',
-                'Apr',
-                'May',
+                'Abr',
+                'Mai',
                 'Jun',
                 'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
+                'Ago',
+                'Set',
+                'Out',
                 'Nov',
-                'Dec',
+                'Dez',
               ],
               series: [
                 {
-                  year: '2019',
+                  year: '2023',
                   data: [
                     {
-                      name: 'Asia',
-                      data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 35, 51, 49],
+                      name: 'Horas Negativas',
+                      data: [100, 410, 350, 510, 490, 620, 690, 910, 1480, 350, 510, 490],
                     },
                     {
-                      name: 'America',
-                      data: [10, 34, 13, 56, 77, 88, 99, 77, 45, 13, 56, 77],
+                      name: 'Horas Extras',
+                      data: [100, 340, 130, 560, 770, 880, 990, 770, 450, 130, 560, 770],
                     },
                   ],
                 },
                 {
-                  year: '2020',
+                  year: '2024',
                   data: [
                     {
-                      name: 'Asia',
-                      data: [51, 35, 41, 10, 91, 69, 62, 148, 91, 69, 62, 49],
+                      name: 'Horas Negativas',
+                      data: [510, 350, 410, 100, 910, 690, 620, 1480, 910, 690, 620, 490],
                     },
                     {
-                      name: 'America',
-                      data: [56, 13, 34, 10, 77, 99, 88, 45, 77, 99, 88, 77],
+                      name: 'Horas Extras',
+                      data: [560, 130, 340, 100, 770, 990, 880, 450, 770, 990, 880, 770],
                     },
                   ],
                 },
@@ -153,21 +127,21 @@ export default function OverviewAppView() {
           />
         </Grid>
 
-        <Grid xs={12} lg={8}>
+        <Grid xs={12} lg={12}>
           <AppNewInvoice
-            title="New Invoice"
+            title="Novos Contratos"
             tableData={_appInvoices}
             tableLabels={[
-              { id: 'id', label: 'Invoice ID' },
-              { id: 'category', label: 'Category' },
-              { id: 'price', label: 'Price' },
+              { id: 'cidade', label: 'Cidade' },
+              { id: 'category', label: 'Categoria' },
+              { id: 'tipo', label: 'tipo' },
               { id: 'status', label: 'Status' },
               { id: '' },
             ]}
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={4}>
+        {/* <Grid xs={12} md={6} lg={4}>
           <AppTopRelated title="Top Related Applications" list={_appRelated} />
         </Grid>
 
@@ -177,9 +151,9 @@ export default function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={4}>
           <AppTopAuthors title="Top Authors" list={_appAuthors} />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={4}>
+        {/* <Grid xs={12} md={6} lg={4}>
           <Stack spacing={3}>
             <AppWidget
               title="Conversion"
@@ -198,9 +172,9 @@ export default function OverviewAppView() {
               chart={{
                 series: 75,
               }}
-            />
-          </Stack>
-        </Grid>
+            /> */}
+        {/* </Stack>
+        </Grid> */}
       </Grid>
     </Container>
   );

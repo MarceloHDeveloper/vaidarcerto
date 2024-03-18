@@ -75,11 +75,11 @@ export default function NotificationsPopover() {
   const renderHead = (
     <Stack direction="row" alignItems="center" sx={{ py: 2, pl: 2.5, pr: 1, minHeight: 68 }}>
       <Typography variant="h6" sx={{ flexGrow: 1 }}>
-        Notifications
+        Notificações
       </Typography>
 
       {!!totalUnRead && (
-        <Tooltip title="Mark all as read">
+        <Tooltip title="Marcar todos como lidos">
           <IconButton color="primary" onClick={handleMarkAllAsRead}>
             <Iconify icon="eva:done-all-fill" />
           </IconButton>
@@ -182,7 +182,7 @@ export default function NotificationsPopover() {
 
         <Box sx={{ p: 1 }}>
           <Button fullWidth size="large">
-            View All
+            Ver todas
           </Button>
         </Box>
       </Drawer>
