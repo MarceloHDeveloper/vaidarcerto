@@ -55,15 +55,15 @@ export function useNavData() {
       // OVERVIEW
       // ----------------------------------------------------------------------
       {
-        subheader: t('overview'),
+        subheader: t('Relatórios'),
         items: [
           {
-            title: t('app'),
+            title: t('Geral'),
             path: paths.dashboard.root,
             icon: ICONS.dashboard,
           },
           {
-            title: t('ecommerce'),
+            title: t('Departamento Pessoal'),
             path: paths.dashboard.general.ecommerce,
             icon: ICONS.ecommerce,
           },
@@ -93,20 +93,35 @@ export function useNavData() {
       // MANAGEMENT
       // ----------------------------------------------------------------------
       {
-        subheader: t('management'),
+        subheader: t('Gestão de Pessoal'),
         items: [
           // USER
           {
-            title: t('user'),
+            title: t('Colaboradores'),
             path: paths.dashboard.user.root,
             icon: ICONS.user,
             children: [
+              { title: t('Ver todos'), path: paths.dashboard.user.list },
+              { title: t('Cadastrar Novo'), path: paths.dashboard.user.new },
+              { title: t('Editar Registro'), path: paths.dashboard.user.demo.edit },
+              { title: t('account'), path: paths.dashboard.user.account },
               { title: t('profile'), path: paths.dashboard.user.root },
               { title: t('cards'), path: paths.dashboard.user.cards },
-              { title: t('list'), path: paths.dashboard.user.list },
-              { title: t('create'), path: paths.dashboard.user.new },
-              { title: t('edit'), path: paths.dashboard.user.demo.edit },
-              { title: t('account'), path: paths.dashboard.user.account },
+            ],
+          },
+          // INVOICE
+          {
+            title: t('Gestão de Horas'),
+            path: paths.dashboard.invoice.root,
+            icon: ICONS.invoice,
+            children: [
+              { title: t('Escalas de Trabalho'), path: paths.dashboard.invoice.root },
+              {
+                title: t('details'),
+                path: paths.dashboard.invoice.demo.details,
+              },
+              { title: t('create'), path: paths.dashboard.invoice.new },
+              { title: t('edit'), path: paths.dashboard.invoice.demo.edit },
             ],
           },
 
@@ -134,22 +149,6 @@ export function useNavData() {
             children: [
               { title: t('list'), path: paths.dashboard.order.root },
               { title: t('details'), path: paths.dashboard.order.demo.details },
-            ],
-          },
-
-          // INVOICE
-          {
-            title: t('invoice'),
-            path: paths.dashboard.invoice.root,
-            icon: ICONS.invoice,
-            children: [
-              { title: t('list'), path: paths.dashboard.invoice.root },
-              {
-                title: t('details'),
-                path: paths.dashboard.invoice.demo.details,
-              },
-              { title: t('create'), path: paths.dashboard.invoice.new },
-              { title: t('edit'), path: paths.dashboard.invoice.demo.edit },
             ],
           },
 

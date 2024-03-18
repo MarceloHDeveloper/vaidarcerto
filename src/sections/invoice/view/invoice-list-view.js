@@ -53,12 +53,12 @@ import InvoiceTableFiltersResult from '../invoice-table-filters-result';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'invoiceNumber', label: 'Customer' },
-  { id: 'createDate', label: 'Create' },
-  { id: 'dueDate', label: 'Due' },
-  { id: 'price', label: 'Amount' },
+  { id: 'invoiceNumber', label: 'Contrato' },
+  { id: 'createDate', label: 'Início' },
+  { id: 'dueDate', label: 'Fim' },
+  { id: 'price', label: 'Total de Horas' },
   { id: 'sent', label: 'Sent', align: 'center' },
-  { id: 'status', label: 'Status' },
+  { id: 'Horas por colaborador', label: 'Status' },
   { id: '' },
 ];
 
@@ -124,28 +124,28 @@ export default function InvoiceListView() {
   const getPercentByStatus = (status) => (getInvoiceLength(status) / tableData.length) * 100;
 
   const TABS = [
-    { value: 'all', label: 'All', color: 'default', count: tableData.length },
+    { value: 'all', label: 'Todas', color: 'default', count: tableData.length },
     {
       value: 'paid',
-      label: 'Paid',
+      label: 'Cumpridas',
       color: 'success',
       count: getInvoiceLength('paid'),
     },
     {
       value: 'pending',
-      label: 'Pending',
+      label: 'Em andamento',
       color: 'warning',
       count: getInvoiceLength('pending'),
     },
     {
       value: 'overdue',
-      label: 'Overdue',
+      label: 'Canceladas',
       color: 'error',
       count: getInvoiceLength('overdue'),
     },
     {
       value: 'draft',
-      label: 'Draft',
+      label: 'Rascunho',
       color: 'default',
       count: getInvoiceLength('draft'),
     },
@@ -170,7 +170,7 @@ export default function InvoiceListView() {
     (id) => {
       const deleteRow = tableData.filter((row) => row.id !== id);
 
-      enqueueSnackbar('Delete success!');
+      enqueueSnackbar('Deletado com sucesso!');
 
       setTableData(deleteRow);
 
@@ -182,7 +182,7 @@ export default function InvoiceListView() {
   const handleDeleteRows = useCallback(() => {
     const deleteRows = tableData.filter((row) => !table.selected.includes(row.id));
 
-    enqueueSnackbar('Delete success!');
+    enqueueSnackbar('Deletado com sucesso!');
 
     setTableData(deleteRows);
 
@@ -217,18 +217,18 @@ export default function InvoiceListView() {
     <>
       <Container maxWidth={settings.themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="List"
+          heading="Escalas de trabalho"
           links={[
             {
-              name: 'Dashboard',
+              name: 'Relatório',
               href: paths.dashboard.root,
             },
             {
-              name: 'Invoice',
+              name: 'Escalas de Trabalho',
               href: paths.dashboard.invoice.root,
             },
             {
-              name: 'List',
+              name: 'Ver todas',
             },
           ]}
           action={
@@ -238,7 +238,7 @@ export default function InvoiceListView() {
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
-              New Invoice
+              Nova Escala de Trabalho
             </Button>
           }
           sx={{
@@ -258,7 +258,7 @@ export default function InvoiceListView() {
               sx={{ py: 2 }}
             >
               <InvoiceAnalytic
-                title="Total"
+                title="Todas"
                 total={tableData.length}
                 percent={100}
                 price={sumBy(tableData, 'totalAmount')}
@@ -267,7 +267,7 @@ export default function InvoiceListView() {
               />
 
               <InvoiceAnalytic
-                title="Paid"
+                title="Cumpridas"
                 total={getInvoiceLength('paid')}
                 percent={getPercentByStatus('paid')}
                 price={getTotalAmount('paid')}
@@ -276,7 +276,7 @@ export default function InvoiceListView() {
               />
 
               <InvoiceAnalytic
-                title="Pending"
+                title="Em andamento"
                 total={getInvoiceLength('pending')}
                 percent={getPercentByStatus('pending')}
                 price={getTotalAmount('pending')}
@@ -285,7 +285,7 @@ export default function InvoiceListView() {
               />
 
               <InvoiceAnalytic
-                title="Overdue"
+                title="Canceladas"
                 total={getInvoiceLength('overdue')}
                 percent={getPercentByStatus('overdue')}
                 price={getTotalAmount('overdue')}
@@ -294,7 +294,7 @@ export default function InvoiceListView() {
               />
 
               <InvoiceAnalytic
-                title="Draft"
+                title="Rascunho"
                 total={getInvoiceLength('draft')}
                 percent={getPercentByStatus('draft')}
                 price={getTotalAmount('draft')}
@@ -367,25 +367,25 @@ export default function InvoiceListView() {
               }}
               action={
                 <Stack direction="row">
-                  <Tooltip title="Sent">
+                  <Tooltip title="Enviar">
                     <IconButton color="primary">
                       <Iconify icon="iconamoon:send-fill" />
                     </IconButton>
                   </Tooltip>
 
-                  <Tooltip title="Download">
+                  <Tooltip title="Baixar">
                     <IconButton color="primary">
                       <Iconify icon="eva:download-outline" />
                     </IconButton>
                   </Tooltip>
 
-                  <Tooltip title="Print">
+                  <Tooltip title="Inprimir">
                     <IconButton color="primary">
                       <Iconify icon="solar:printer-minimalistic-bold" />
                     </IconButton>
                   </Tooltip>
 
-                  <Tooltip title="Delete">
+                  <Tooltip title="Deletar">
                     <IconButton color="primary" onClick={confirm.onTrue}>
                       <Iconify icon="solar:trash-bin-trash-bold" />
                     </IconButton>
@@ -456,10 +456,12 @@ export default function InvoiceListView() {
       <ConfirmDialog
         open={confirm.value}
         onClose={confirm.onFalse}
-        title="Delete"
+        title="Deletar"
         content={
           <>
-            Are you sure want to delete <strong> {table.selected.length} </strong> items?
+            Você tem certeza que deseja deletar <strong> {table.selected.length} </strong> items?
+            <br />
+            Esta ação não poderá ser desfeita.
           </>
         }
         action={
@@ -471,7 +473,7 @@ export default function InvoiceListView() {
               confirm.onFalse();
             }}
           >
-            Delete
+            Deletar
           </Button>
         }
       />

@@ -134,7 +134,7 @@ export default function InvoiceTableRow({
           }}
         >
           <Iconify icon="solar:eye-bold" />
-          View
+          Ver
         </MenuItem>
 
         <MenuItem
@@ -144,7 +144,7 @@ export default function InvoiceTableRow({
           }}
         >
           <Iconify icon="solar:pen-bold" />
-          Edit
+          Editar
         </MenuItem>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
@@ -157,7 +157,7 @@ export default function InvoiceTableRow({
           sx={{ color: 'error.main' }}
         >
           <Iconify icon="solar:trash-bin-trash-bold" />
-          Delete
+          Deletar
         </MenuItem>
       </CustomPopover>
 
@@ -165,10 +165,10 @@ export default function InvoiceTableRow({
         open={confirm.value}
         onClose={confirm.onFalse}
         title="Delete"
-        content="Are you sure want to delete?"
+        content="Tem certeza que deseja deletar"
         action={
           <Button variant="contained" color="error" onClick={onDeleteRow}>
-            Delete
+            Deletar
           </Button>
         }
       />

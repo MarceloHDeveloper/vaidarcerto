@@ -50,7 +50,7 @@ export default function InvoiceTableFiltersResult({
       <Box sx={{ typography: 'body2' }}>
         <strong>{results}</strong>
         <Box component="span" sx={{ color: 'text.secondary', ml: 0.25 }}>
-          results found
+          resultados encontrados:
         </Box>
       </Box>
 
@@ -91,7 +91,7 @@ export default function InvoiceTableFiltersResult({
           onClick={onResetFilters}
           startIcon={<Iconify icon="solar:trash-bin-trash-bold" />}
         >
-          Clear
+          Limpar
         </Button>
       </Stack>
     </Stack>

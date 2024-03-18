@@ -60,7 +60,7 @@ export default function InvoiceToolbar({ invoice, currentStatus, statusOptions, 
             style={{ textDecoration: 'none' }}
           >
             {({ loading }) => (
-              <Tooltip title="Download">
+              <Tooltip title="Baixar">
                 <IconButton>
                   {loading ? (
                     <CircularProgress size={24} color="inherit" />
@@ -72,19 +72,19 @@ export default function InvoiceToolbar({ invoice, currentStatus, statusOptions, 
             )}
           </PDFDownloadLink>
 
-          <Tooltip title="Print">
+          <Tooltip title="Imprimir">
             <IconButton>
               <Iconify icon="solar:printer-minimalistic-bold" />
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="Send">
+          <Tooltip title="Enviar">
             <IconButton>
               <Iconify icon="iconamoon:send-fill" />
             </IconButton>
           </Tooltip>
 
-          <Tooltip title="Share">
+          <Tooltip title="Compartilhar">
             <IconButton>
               <Iconify icon="solar:share-bold" />
             </IconButton>

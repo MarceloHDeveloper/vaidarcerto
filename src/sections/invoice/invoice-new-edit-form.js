@@ -74,9 +74,9 @@ export default function InvoiceNewEditForm({ currentInvoice }) {
       invoiceTo: currentInvoice?.invoiceTo || null,
       items: currentInvoice?.items || [
         {
-          title: '',
-          description: '',
-          service: '',
+          Nome: '',
+          Observações: '',
+          Cargo: '',
           quantity: 1,
           price: 0,
           total: 0,

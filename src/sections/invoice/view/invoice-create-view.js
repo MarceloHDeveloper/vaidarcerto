@@ -17,18 +17,18 @@ export default function InvoiceCreateView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
-        heading="Create a new invoice"
+        heading="Crie uma nova Escala de Trabalho"
         links={[
           {
-            name: 'Dashboard',
+            name: 'Relatórios',
             href: paths.dashboard.root,
           },
           {
-            name: 'Invoice',
+            name: 'Escalas de Trabalho',
             href: paths.dashboard.invoice.root,
           },
           {
-            name: 'New Invoice',
+            name: 'Nova escala de trabalho',
           },
         ]}
         sx={{

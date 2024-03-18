@@ -5,12 +5,9 @@ import Stack from '@mui/material/Stack';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
-import IconButton from '@mui/material/IconButton';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { formHelperTextClasses } from '@mui/material/FormHelperText';
 
@@ -79,7 +76,7 @@ export default function InvoiceTableToolbar({
             width: { xs: 1, md: 180 },
           }}
         >
-          <InputLabel>Service</InputLabel>
+          <InputLabel>Contrato</InputLabel>
 
           <Select
             multiple
@@ -99,7 +96,7 @@ export default function InvoiceTableToolbar({
         </FormControl>
 
         <DatePicker
-          label="Start date"
+          label="Data de Início"
           value={filters.startDate}
           onChange={handleFilterStartDate}
           slotProps={{ textField: { fullWidth: true } }}
@@ -109,14 +106,14 @@ export default function InvoiceTableToolbar({
         />
 
         <DatePicker
-          label="End date"
+          label="Data de Término"
           value={filters.endDate}
           onChange={handleFilterEndDate}
           slotProps={{
             textField: {
               fullWidth: true,
               error: dateError,
-              helperText: dateError && 'End date must be later than start date',
+              helperText: dateError && 'A data de término deve depois da data de início.',
             },
           }}
           sx={{
@@ -128,7 +125,7 @@ export default function InvoiceTableToolbar({
           }}
         />
 
-        <Stack direction="row" alignItems="center" spacing={2} flexGrow={1} sx={{ width: 1 }}>
+        {/* <Stack direction="row" alignItems="center" spacing={2} flexGrow={1} sx={{ width: 1 }}>
           <TextField
             fullWidth
             value={filters.name}
@@ -146,7 +143,7 @@ export default function InvoiceTableToolbar({
           <IconButton onClick={popover.onOpen}>
             <Iconify icon="eva:more-vertical-fill" />
           </IconButton>
-        </Stack>
+        </Stack> */}
       </Stack>
 
       <CustomPopover
@@ -161,7 +158,7 @@ export default function InvoiceTableToolbar({
           }}
         >
           <Iconify icon="solar:printer-minimalistic-bold" />
-          Print
+          Imprimir
         </MenuItem>
 
         <MenuItem
@@ -170,7 +167,7 @@ export default function InvoiceTableToolbar({
           }}
         >
           <Iconify icon="solar:import-bold" />
-          Import
+          Importar
         </MenuItem>
 
         <MenuItem
@@ -179,7 +176,7 @@ export default function InvoiceTableToolbar({
           }}
         >
           <Iconify icon="solar:export-bold" />
-          Export
+          Exportar
         </MenuItem>
       </CustomPopover>
     </>
